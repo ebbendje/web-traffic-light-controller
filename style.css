@@ -32,6 +32,16 @@ h1 {
     color: #f0f0f5;
 }
 
+label {
+    display: block;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #cbd5e1;
+
+}
+
 /* Container do input + botão */
 .input-container {
     display: flex;
