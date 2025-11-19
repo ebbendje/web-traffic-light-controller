@@ -26,7 +26,5 @@ Here're some of the project's best features:
 -   Monitoramento da hora da mudanca dos sinais
 
 ## ScreenShots
-  
-<img src="https://github.com/ebbendje/Sem-foro/blob/main/assets/screenshot1.png?raw=true" alt="project-screenshot" width="400" height="400/">
-
-<img src="https://github.com/ebbendje/Sem-foro/blob/main/assets/screenshot2.png?raw=true" alt="project-screenshot" width="400" height="400/">  
+![Screenshot1](https://github.com/ebbendje/Sem-foro/blob/main/assets/screenshot1.png?raw=true "Disconectado")
+![Screenshot1](https://github.com/ebbendje/Sem-foro/blob/main/assets/screenshot2.png?raw=true "Conectado")
