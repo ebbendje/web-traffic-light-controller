@@ -46,6 +46,9 @@
             }
         }
 
+        function clearOutput() {
+            document.getElementById('output').innerHTML = '';
+        }
         function addOutput(message) {
             const output = document.getElementById('output');
             const time = new Date().toLocaleTimeString();
