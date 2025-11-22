@@ -52,7 +52,9 @@
             flex: 1;
             min-width: 300px;
         }
-
+        .input-group button:hover ~ .input-group button {
+            transform: rotateX(180deg);
+        }
         .semaphore-container {
             display: flex;
             gap: 30px;

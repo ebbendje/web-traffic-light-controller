@@ -31,6 +31,13 @@ function setSignal(signal) {
     
     if (signal === 'R') {
         vehicleSignals['R'] = !vehicleSignals['R'];
+        fetch(`http://${semaphoreId}/R`).then(response => {
+            if (!response.ok) {
+                addOutput(`Error: Failed to set RED signal on Semaphore #${semaphoreId}`);
+            }
+        }).catch(error => {
+            addOutput(`Error: ${error.message}`);
+        });
         addOutput(`Signal changed to RED on Semaphore #${semaphoreId}`);
     } else if (signal === 'Y') {
         vehicleSignals['Y'] = !vehicleSignals['Y'];
