@@ -14,7 +14,6 @@ function connect() {
         document.getElementById('status').textContent = 'yes';
         document.getElementById('status').classList.add('connected');
         addOutput(`Conectado`);
-        startAutoCycle();
     } else {
         addOutput('Error: ID inválido');
         document.getElementById('status').textContent = 'no';
@@ -72,14 +71,13 @@ function setSignal(signal) {
 function clearOutput() {
     document.getElementById('output').innerHTML = '';
 }
+
 function addOutput(message) {
     const output = document.getElementById('output');
     const time = new Date().getHours().toString().padStart(2, '0') + ':' + new Date().getMinutes().toString().padStart(2, '0');
     output.innerHTML += `[${time}] ${message}<br>`;
     output.scrollTop = output.scrollHeight;
 }
-
-
 
 window.onload = function() {
     addOutput('Sistema iniciado.');
