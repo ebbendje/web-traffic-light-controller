@@ -33,15 +33,19 @@
             
             if (signal === 'R') {
                 document.getElementById('light1-red').classList.add('active');
-                document.getElementById('light2-green').classList.add('active');
                 addOutput(`Signal changed to RED on Semaphore #${semaphoreId}`);
             } else if (signal === 'Y') {
                 document.getElementById('light1-yellow').classList.add('active');
                 addOutput(`Signal changed to YELLOW on Semaphore #${semaphoreId}`);
             } else if (signal === 'G') {
                 document.getElementById('light1-green').classList.add('active');
-                document.getElementById('light2-red').classList.add('active');
                 addOutput(`Signal changed to GREEN on Semaphore #${semaphoreId}`);
+            } else if (signal === 'RP') {
+                document.getElementById('light2-red').classList.add('active');
+                addOutput(`Pedestrian Signal changed to RED on Semaphore #${semaphoreId}`);
+            } else if (signal === 'GP') {
+                document.getElementById('light2-green').classList.add('active');
+                addOutput(`Pedestrian Signal changed to GREEN on Semaphore #${semaphoreId}`);
             }
         }
 
