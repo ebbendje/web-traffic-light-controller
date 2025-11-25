@@ -15,7 +15,7 @@
         }
 
         .container {
-            background: white;
+            background: #282A36;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             max-width: 1200px;
@@ -64,7 +64,7 @@
         }
 
         .semaphore {
-            background: linear-gradient(145deg, #d0d0d0, #f0f0f0);
+            background: linear-gradient(145deg, #282A36, #44475A);
             border-radius: 20px;
             padding: 25px 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -146,27 +146,8 @@
             background: rgba(46, 213, 115, 0.6);
         }
 
-        .connector {
-            width: 40px;
-            height: 200px;
-            background: linear-gradient(180deg, #888, #aaa);
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 20px 0;
-            align-self: center;
-            animation: fadeIn 1s ease;
-        }
-
-        .connector-line {
-            height: 3px;
-            background: #666;
-            margin: 0 5px;
-        }
-
         .control-panel {
-            background: #f8f9fa;
+            background: #44475A;
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -180,7 +161,7 @@
         .control-group label {
             display: block;
             font-weight: 600;
-            color: #555;
+            color: #F8F8F2;
             margin-bottom: 10px;
             font-size: 0.9em;
             text-transform: uppercase;
@@ -195,9 +176,11 @@
         input[type="text"] {
             flex: 1;
             padding: 12px;
-            border: 2px solid #ddd;
+            border: 2px solid #6272A4;
             border-radius: 8px;
             font-size: 1em;
+            background: #44475A;
+            color: #F8F8F2;
             transition: all 0.3s ease;
         }
 
@@ -209,7 +192,7 @@
 
         button {
             padding: 12px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #6272A4 100%);
             color: white;
             border: none;
             border-radius: 8px;
@@ -275,19 +258,20 @@
         }
 
         .output-box {
-            background: white;
-            border: 2px solid #ddd;
+            background: #44475A;
+            border: 2px solid #6272A4;
             border-radius: 10px;
             padding: 15px;
             min-height: 100px;
             font-family: 'Courier New', monospace;
-            color: #333;
+            color: #F8F8F2;
             overflow-y: auto;
             max-height: 150px;
         }
 
         .about-section {
-            background: #f8f9fa;
+            background: #44475A;
+            color: #F8F8F2;
             padding: 25px;
             border-radius: 15px;
             animation: fadeInUp 1s ease;
@@ -302,7 +286,7 @@
 
         .about-text {
             flex: 2;
-            color: #666;
+            color: #F8F8F2;
             line-height: 1.6;
         }
 
@@ -312,12 +296,12 @@
         }
 
         .about-contact p {
-            color: #666;
+            color: #F8F8F2;
             margin-bottom: 10px;
         }
 
         h2 {
-            color: #333;
+            color: #F8F8F2;
             margin-bottom: 15px;
             font-size: 1.5em;
         }
