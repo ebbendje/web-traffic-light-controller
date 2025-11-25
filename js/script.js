@@ -34,6 +34,20 @@ function connect() {
     }
 }
 
+function disconnect() {
+    if (connected) {
+        connected = false;
+        document.getElementById('status').textContent = 'no';
+        document.getElementById('status').classList.remove('connected');
+        addOutput(`Desconectado do semáforo ID: ${semaphoreId}`);
+        fetch(`${deviceAddress}/disconnect`);
+        semaphoreId = null;
+        deviceAddress = null;
+    } else {
+        addOutput('Error: Sem conexão para desconectar.');
+    }
+}
+
 function setSignal(signal) {
     if (!connected) {
         addOutput('Error: Sem conexão, conecte-se primeiro.');
