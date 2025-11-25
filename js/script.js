@@ -8,11 +8,16 @@ let deviceAddress = null;
 const vehicleSignals = {'R':false, 'G':false, 'Y':false};
 const pedestrianSignals = {'RP':false, 'GP':false};
 
+function isValidIPv4(ip) {
+  const regex = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+  return regex.test(ip);
+}
+
 function connect() {
     const idInput = document.getElementById('id-input');
     semaphoreId = idInput.value;
-    deviceAddress = `http://${semaphoreId}`;
-    if (semaphoreId) {
+    if (isValidIPv4(semaphoreId)) {
+        deviceAddress = `http://${semaphoreId}`;
         fetch(`${deviceAddress}/connect`).then(response => {
             if (response.ok) {
                 connected = true;
@@ -26,7 +31,6 @@ function connect() {
             addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
             addOutput(`Detalhes do erro: ${error}`);
         });
-        addOutput(`Conectado`);
     } else {
         addOutput('Error: ID inválido');
         document.getElementById('status').textContent = 'no';
