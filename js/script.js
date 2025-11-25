@@ -3,16 +3,29 @@ let currentSignal = null;
 let semaphoreId = null;
 let autoCycleInterval;
 
+let deviceAddress = null;
+
 const vehicleSignals = {'R':false, 'G':false, 'Y':false};
 const pedestrianSignals = {'RP':false, 'GP':false};
 
 function connect() {
     const idInput = document.getElementById('id-input');
     semaphoreId = idInput.value;
+    deviceAddress = `http://${semaphoreId}`;
     if (semaphoreId) {
         connected = true;
         document.getElementById('status').textContent = 'yes';
         document.getElementById('status').classList.add('connected');
+        fetch(`${deviceAddress}/connect`).then(response => {
+            if (response.ok) {
+                addOutput(`Conexão estabelecida com o semáforo ID: ${semaphoreId}`);
+            } else {
+                addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
+            }
+        }).catch(error => {
+            addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
+            addOutput(`Detalhes do erro: ${error}`);
+        });
         addOutput(`Conectado`);
     } else {
         addOutput('Error: ID inválido');
