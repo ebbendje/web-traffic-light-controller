@@ -25,11 +25,10 @@ function connect() {
                 document.getElementById('status').classList.add('connected');
                 addOutput(`Conexão estabelecida com o semáforo ID: ${semaphoreId}`);
             } else {
-                addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
+                addOutput(`Sem resposta do semáforo ID: ${semaphoreId}`);
             }
         }).catch(error => {
-            addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
-            addOutput(`Detalhes do erro: ${error}`);
+          addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
         });
     } else {
         addOutput('Error: ID inválido');
