@@ -13,11 +13,11 @@ function connect() {
     semaphoreId = idInput.value;
     deviceAddress = `http://${semaphoreId}`;
     if (semaphoreId) {
-        connected = true;
-        document.getElementById('status').textContent = 'yes';
-        document.getElementById('status').classList.add('connected');
         fetch(`${deviceAddress}/connect`).then(response => {
             if (response.ok) {
+                connected = true;
+                document.getElementById('status').textContent = 'yes';
+                document.getElementById('status').classList.add('connected');
                 addOutput(`Conexão estabelecida com o semáforo ID: ${semaphoreId}`);
             } else {
                 addOutput(`Erro ao conectar com o semáforo ID: ${semaphoreId}`);
@@ -62,37 +62,53 @@ function setSignal(signal) {
     if (vehicleSignals.R) {
         document.getElementById('light1-red').classList.add('active');
         document.getElementById('r-button').classList.add('on');
+        fetch(`${deviceAddress}/vehicle-red-on`);
     } else {
         document.getElementById('light1-red').classList.remove('active');
         document.getElementById('r-button').classList.remove('on');
+        fetch(`${deviceAddress}/vehicle-red-off`);
     }
     if (vehicleSignals.Y) {
-        document.getElementById('light1-yellow').classList.add('active');
-        document.getElementById('y-button').classList.add('on');
+        fetch(`${deviceAddress}/vehicle-yellow-on`).then(() => {
+            document.getElementById('light1-yellow').classList.add('active');
+            document.getElementById('y-button').classList.add('on');
+        });
     } else {
-        document.getElementById('light1-yellow').classList.remove('active');
-        document.getElementById('y-button').classList.remove('on');
+        fetch(`${deviceAddress}/vehicle-yellow-off`).then(() => {
+            document.getElementById('light1-yellow').classList.remove('active');
+            document.getElementById('y-button').classList.remove('on');
+        });
     }
     if (vehicleSignals.G) {
         document.getElementById('light1-green').classList.add('active');
         document.getElementById('g-button').classList.add('on');
     } else {
-        document.getElementById('light1-green').classList.remove('active');
-        document.getElementById('g-button').classList.remove('on');
+        fetch(`${deviceAddress}/vehicle-green-off`).then(() => {
+            document.getElementById('light1-green').classList.remove('active');
+            document.getElementById('g-button').classList.remove('on');
+        });
     }
     if (pedestrianSignals.RP) {
-        document.getElementById('light2-red').classList.add('active');
-        document.getElementById('rp-button').classList.add('on');
+        fetch(`${deviceAddress}/pedestrian-red-on`).then(() => {
+             document.getElementById('light2-red').classList.add('active');
+            document.getElementById('rp-button').classList.add('on');
+        });  
     } else {
-        document.getElementById('light2-red').classList.remove('active');
-        document.getElementById('rp-button').classList.remove('on');
+        fetch(`${deviceAddress}/pedestrian-red-off`).then(() => {
+            document.getElementById('light2-red').classList.remove('active');
+            document.getElementById('rp-button').classList.remove('on');
+        });
     }
     if (pedestrianSignals.GP) {
-        document.getElementById('light2-green').classList.add('active');
-        document.getElementById('gp-button').classList.add('on');
+        fetch(`${deviceAddress}/pedestrian-green-on`).then(() => {
+            document.getElementById('light2-green').classList.add('active');
+            document.getElementById('gp-button').classList.add('on');
+        });
     } else {
-        document.getElementById('light2-green').classList.remove('active');
-        document.getElementById('gp-button').classList.remove('on');
+        fetch(`${deviceAddress}/pedestrian-green-off`).then(() => {
+            document.getElementById('light2-green').classList.remove('active');
+            document.getElementById('gp-button').classList.remove('on');
+        });
     }
 }
 
