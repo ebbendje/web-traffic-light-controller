@@ -269,6 +269,13 @@
             max-height: 150px;
         }
 
+        .power-button {
+          float: right;
+          margin-right: 50px;
+          font-size: 2em;
+          font-weight: bolder;
+        }
+
         .about-section {
             background: #44475A;
             color: #F8F8F2;
